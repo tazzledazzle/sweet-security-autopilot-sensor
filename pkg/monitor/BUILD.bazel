@@ -1,0 +1,22 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "monitor",
+    srcs = ["monitor.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/monitor",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/collector",
+        "//pkg/fileintegrity",
+        "//pkg/netpolicy",
+        "//pkg/procmon",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_test(
+    name = "monitor_test",
+    srcs = ["monitor_test.go"],
+    embed = [":monitor"],
+    deps = ["@com_github_sirupsen_logrus//:logrus"],
+)

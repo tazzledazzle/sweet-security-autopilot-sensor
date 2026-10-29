@@ -1,0 +1,16 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "collector",
+    srcs = ["collector.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/collector",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_sirupsen_logrus//:logrus"],
+)
+
+go_test(
+    name = "collector_test",
+    srcs = ["collector_test.go"],
+    embed = [":collector"],
+    deps = ["@com_github_sirupsen_logrus//:logrus"],
+)

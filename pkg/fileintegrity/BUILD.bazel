@@ -1,0 +1,23 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "fileintegrity",
+    srcs = ["fileintegrity.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/fileintegrity",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/collector",
+        "@com_github_fsnotify_fsnotify//:fsnotify",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_test(
+    name = "fileintegrity_test",
+    srcs = ["fileintegrity_test.go"],
+    embed = [":fileintegrity"],
+    deps = [
+        "//pkg/collector",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)

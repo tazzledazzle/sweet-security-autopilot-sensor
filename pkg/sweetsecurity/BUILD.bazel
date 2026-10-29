@@ -1,0 +1,16 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "sweetsecurity",
+    srcs = ["client.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/sweetsecurity",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_sirupsen_logrus//:logrus"],
+)
+
+go_test(
+    name = "sweetsecurity_test",
+    srcs = ["client_test.go"],
+    embed = [":sweetsecurity"],
+    deps = ["@com_github_sirupsen_logrus//:logrus"],
+)

@@ -1,0 +1,22 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "procmon",
+    srcs = ["procmon.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/procmon",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/collector",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_test(
+    name = "procmon_test",
+    srcs = ["procmon_test.go"],
+    embed = [":procmon"],
+    deps = [
+        "//pkg/collector",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)

@@ -1,0 +1,36 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "webhook",
+    srcs = [
+        "admission.go",
+        "handler.go",
+    ],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/internal/webhook",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//internal/config",
+        "@com_github_sirupsen_logrus//:logrus",
+        "@io_k8s_api//admission/v1:admission",
+        "@io_k8s_api//core/v1:core",
+        "@io_k8s_apimachinery//pkg/api/resource",
+        "@io_k8s_apimachinery//pkg/apis/meta/v1:meta",
+    ],
+)
+
+go_test(
+    name = "webhook_test",
+    srcs = [
+        "admission_test.go",
+        "handler_test.go",
+    ],
+    embed = [":webhook"],
+    deps = [
+        "//internal/config",
+        "@com_github_sirupsen_logrus//:logrus",
+        "@io_k8s_api//admission/v1:admission",
+        "@io_k8s_api//core/v1:core",
+        "@io_k8s_apimachinery//pkg/apis/meta/v1:meta",
+        "@io_k8s_apimachinery//pkg/runtime",
+    ],
+)

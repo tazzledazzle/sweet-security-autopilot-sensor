@@ -1,0 +1,22 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "netpolicy",
+    srcs = ["netpolicy.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/netpolicy",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/collector",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_test(
+    name = "netpolicy_test",
+    srcs = ["netpolicy_test.go"],
+    embed = [":netpolicy"],
+    deps = [
+        "//pkg/collector",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)

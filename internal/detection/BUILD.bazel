@@ -1,0 +1,16 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "detection",
+    srcs = ["rules.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/internal/detection",
+    visibility = ["//:__subpackages__"],
+    deps = ["//internal/types"],
+)
+
+go_test(
+    name = "detection_test",
+    srcs = ["rules_test.go"],
+    embed = [":detection"],
+    deps = ["//internal/types"],
+)

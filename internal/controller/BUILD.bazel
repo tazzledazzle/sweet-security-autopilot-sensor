@@ -1,0 +1,27 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "controller",
+    srcs = ["controller.go"],
+    importpath = "github.com/invisible-tech/autopilot-security-sensor/internal/controller",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//internal/config",
+        "//internal/detection",
+        "//internal/types",
+        "//pkg/sweetsecurity",
+        "@com_github_prometheus_client_golang//prometheus",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_test(
+    name = "controller_test",
+    srcs = ["controller_test.go"],
+    embed = [":controller"],
+    deps = [
+        "//internal/config",
+        "//internal/types",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
