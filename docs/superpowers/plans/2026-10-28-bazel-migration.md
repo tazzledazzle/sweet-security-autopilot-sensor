@@ -32,7 +32,7 @@
 **Interfaces:**
 - Produces: `MODULE.bazel` with `rules_go 0.46.0` and `gazelle 0.35.0` deps; root `BUILD.bazel` with `gazelle` target; `.bazelrc` with CI profile
 
-- [ ] **Step 1: Verify Bazelisk is installed**
+- [x] **Step 1: Verify Bazelisk is installed**
 
 ```bash
 which bazel && bazel version
@@ -40,7 +40,7 @@ which bazel && bazel version
 
 Expected output: `Bazelisk version: ...` and `Build label: ...`. Bazelisk proxies to the version in `.bazelversion`. If not installed: `brew install bazelisk`.
 
-- [ ] **Step 2: Create `.bazelversion`**
+- [x] **Step 2: Create `.bazelversion`**
 
 ```
 7.4.1
@@ -48,7 +48,7 @@ Expected output: `Bazelisk version: ...` and `Build label: ...`. Bazelisk proxie
 
 File: `.bazelversion` (no trailing newline needed — one line, the version string).
 
-- [ ] **Step 3: Create `WORKSPACE.bzlmod`**
+- [x] **Step 3: Create `WORKSPACE.bzlmod`**
 
 Empty file — required to signal Bzlmod mode to tools that check for WORKSPACE.
 
@@ -56,7 +56,7 @@ Empty file — required to signal Bzlmod mode to tools that check for WORKSPACE.
 touch WORKSPACE.bzlmod
 ```
 
-- [ ] **Step 4: Create `MODULE.bazel`**
+- [x] **Step 4: Create `MODULE.bazel`**
 
 ```python
 module(
@@ -75,7 +75,7 @@ go_deps.from_file(go_mod = "//:go.mod")
 # use_repo calls populated by: bazel mod tidy
 ```
 
-- [ ] **Step 5: Create `.bazelrc`**
+- [x] **Step 5: Create `.bazelrc`**
 
 ```
 common --enable_bzlmod
@@ -99,7 +99,7 @@ build:ci --noshow_progress
 build:ci --show_result=20
 ```
 
-- [ ] **Step 6: Create root `BUILD.bazel`**
+- [x] **Step 6: Create root `BUILD.bazel`**
 
 ```python
 load("@gazelle//:def.bzl", "gazelle")
@@ -111,7 +111,7 @@ package(default_visibility = ["//visibility:private"])
 gazelle(name = "gazelle")
 ```
 
-- [ ] **Step 7: Verify Bazel downloads correctly**
+- [x] **Step 7: Verify Bazel downloads correctly**
 
 ```bash
 bazel version
@@ -119,7 +119,7 @@ bazel version
 
 Expected: `Build label: 7.4.1` — Bazelisk downloads Bazel 7.4.1 on first run. This takes 1-2 minutes.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add .bazelversion WORKSPACE.bzlmod MODULE.bazel .bazelrc BUILD.bazel
@@ -143,7 +143,7 @@ git commit -m "chore: bootstrap Bazel workspace with Bzlmod"
 - Consumes: `MODULE.bazel` from Task 1, `go.mod`
 - Produces: `//cmd/agent`, `//cmd/controller`, `//cmd/webhook` build targets; all `//internal/...` and `//pkg/...` library targets
 
-- [ ] **Step 1: Run `bazel mod tidy` to populate use_repo**
+- [x] **Step 1: Run `bazel mod tidy` to populate use_repo**
 
 ```bash
 bazel mod tidy
@@ -151,7 +151,7 @@ bazel mod tidy
 
 Expected: `MODULE.bazel` gets `use_repo(go_deps, ...)` lines added and `MODULE.bazel.lock` is created. This downloads all deps — takes 2-3 minutes on first run.
 
-- [ ] **Step 2: Run Gazelle to generate BUILD files**
+- [x] **Step 2: Run Gazelle to generate BUILD files**
 
 ```bash
 bazel run //:gazelle
@@ -159,7 +159,7 @@ bazel run //:gazelle
 
 Expected: Creates `BUILD.bazel` files in all Go packages under `cmd/`, `internal/`, `pkg/`. You should see output like `... updated cmd/agent/BUILD.bazel`.
 
-- [ ] **Step 3: Verify generated agent BUILD file looks correct**
+- [x] **Step 3: Verify generated agent BUILD file looks correct**
 
 ```bash
 cat cmd/agent/BUILD.bazel
@@ -191,7 +191,7 @@ go_binary(
 
 If the deps list looks wrong, re-run `bazel run //:gazelle`.
 
-- [ ] **Step 4: Build all three binaries**
+- [x] **Step 4: Build all three binaries**
 
 ```bash
 bazel build //cmd/agent //cmd/controller //cmd/webhook
@@ -199,7 +199,7 @@ bazel build //cmd/agent //cmd/controller //cmd/webhook
 
 Expected: `INFO: Build completed successfully, 3 total actions` (or similar). Binaries appear in `bazel-bin/cmd/agent/agent_linux_amd64`, etc.
 
-- [ ] **Step 5: Run all tests**
+- [x] **Step 5: Run all tests**
 
 ```bash
 bazel test //...
@@ -207,7 +207,7 @@ bazel test //...
 
 Expected: All tests pass. Output ends with `INFO: Build completed successfully`. If any test fails, check `bazel test //... --test_output=errors` for details.
 
-- [ ] **Step 6: Confirm test count matches `go test`**
+- [x] **Step 6: Confirm test count matches `go test`**
 
 ```bash
 go test ./... 2>&1 | grep -c "^ok"
@@ -216,7 +216,7 @@ bazel test //... 2>&1 | grep -c "PASSED"
 
 Both counts should match (there are tests in `internal/config`, `internal/controller`, `internal/detection`, `internal/server`, `internal/types`, `internal/version`, `internal/webhook`, `pkg/collector`, `pkg/fileintegrity`, `pkg/monitor`, `pkg/netpolicy`, `pkg/procmon`, `pkg/sweetsecurity`).
 
-- [ ] **Step 7: Commit all generated files**
+- [x] **Step 7: Commit all generated files**
 
 ```bash
 git add MODULE.bazel MODULE.bazel.lock cmd/*/BUILD.bazel internal/*/BUILD.bazel pkg/*/BUILD.bazel
@@ -234,14 +234,14 @@ git commit -m "chore: generate Bazel BUILD files via Gazelle"
 - Consumes: `.bazelrc` CI profile from Task 1
 - Produces: CI pipeline that builds and tests on every push/PR using Buildbuddy remote cache
 
-- [ ] **Step 1: Add Buildbuddy API key as GitHub Actions secret**
+- [x] **Step 1: Add Buildbuddy API key as GitHub Actions secret**
 
 1. Go to [app.buildbuddy.io](https://app.buildbuddy.io) and create a free account.
 2. Create a new org → go to Settings → API Keys → copy the API key.
 3. In your GitHub repo: Settings → Secrets and variables → Actions → New repository secret.
 4. Name: `BUILDBUDDY_API_KEY`, Value: the API key you copied.
 
-- [ ] **Step 2: Create `.github/workflows/ci.yml`**
+- [x] **Step 2: Create `.github/workflows/ci.yml`**
 
 ```yaml
 name: CI
@@ -278,7 +278,7 @@ jobs:
           BUILDBUDDY_API_KEY: ${{ secrets.BUILDBUDDY_API_KEY }}
 ```
 
-- [ ] **Step 3: Verify the workflow file is valid YAML**
+- [x] **Step 3: Verify the workflow file is valid YAML**
 
 ```bash
 python3 -c "import yaml; yaml.safe_load(open('.github/workflows/ci.yml'))" && echo "valid"
@@ -286,7 +286,7 @@ python3 -c "import yaml; yaml.safe_load(open('.github/workflows/ci.yml'))" && ec
 
 Expected: `valid`
 
-- [ ] **Step 4: Test CI profile locally (optional but recommended)**
+- [x] **Step 4: Test CI profile locally (optional but recommended)**
 
 ```bash
 BUILDBUDDY_API_KEY=your-key-here bazel build --config=ci //cmd/agent
@@ -294,7 +294,7 @@ BUILDBUDDY_API_KEY=your-key-here bazel build --config=ci //cmd/agent
 
 Expected: Build succeeds and you see a build event URL in the output like `https://app.buildbuddy.io/invocation/...`. Check Buildbuddy UI to confirm cache hit metrics.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add .github/workflows/ci.yml
@@ -315,7 +315,7 @@ git commit -m "ci: add GitHub Actions build and test with Buildbuddy remote cach
 - Consumes: `//cmd/agent`, `//cmd/controller`, `//cmd/webhook` go_binary targets from Task 2
 - Produces: `//cmd/agent:agent_image`, `//cmd/controller:controller_image`, `//cmd/webhook:webhook_image` OCI image targets; `//cmd/agent:agent_push`, etc. push targets
 
-- [ ] **Step 1: Get the distroless base image digest**
+- [x] **Step 1: Get the distroless base image digest**
 
 Install `crane` if needed:
 ```bash
@@ -329,7 +329,7 @@ crane digest gcr.io/distroless/static-debian12:nonroot
 
 Expected output: `sha256:<64-char-hex>`. Copy this value — you'll use it in the next step.
 
-- [ ] **Step 2: Add `rules_oci` and `rules_pkg` to `MODULE.bazel`**
+- [x] **Step 2: Add `rules_oci` and `rules_pkg` to `MODULE.bazel`**
 
 Add these lines after the existing `bazel_dep` lines in `MODULE.bazel`:
 
@@ -347,7 +347,7 @@ oci.pull(
 use_repo(oci, "distroless_nonroot")
 ```
 
-- [ ] **Step 3: Run `bazel mod tidy` to lock the new deps**
+- [x] **Step 3: Run `bazel mod tidy` to lock the new deps**
 
 ```bash
 bazel mod tidy
@@ -355,7 +355,7 @@ bazel mod tidy
 
 Expected: `MODULE.bazel.lock` updated.
 
-- [ ] **Step 4: Add OCI targets to `cmd/agent/BUILD.bazel`**
+- [x] **Step 4: Add OCI targets to `cmd/agent/BUILD.bazel`**
 
 Append to the Gazelle-generated `cmd/agent/BUILD.bazel` (keep existing go_library and go_binary targets):
 
@@ -382,7 +382,7 @@ oci_push(
 )
 ```
 
-- [ ] **Step 5: Add OCI targets to `cmd/controller/BUILD.bazel`**
+- [x] **Step 5: Add OCI targets to `cmd/controller/BUILD.bazel`**
 
 Append to `cmd/controller/BUILD.bazel`:
 
@@ -436,7 +436,7 @@ oci_push(
 )
 ```
 
-- [ ] **Step 7: Verify image targets build**
+- [x] **Step 7: Verify image targets build**
 
 ```bash
 bazel build //cmd/agent:agent_image //cmd/controller:controller_image //cmd/webhook:webhook_image
@@ -444,7 +444,7 @@ bazel build //cmd/agent:agent_image //cmd/controller:controller_image //cmd/webh
 
 Expected: `INFO: Build completed successfully, N total actions`. The OCI tarballs appear in `bazel-bin/cmd/agent/agent_image/`.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add MODULE.bazel MODULE.bazel.lock cmd/agent/BUILD.bazel cmd/controller/BUILD.bazel cmd/webhook/BUILD.bazel
@@ -465,7 +465,7 @@ git commit -m "feat: add rules_oci container image build targets"
 - Consumes: all Bazel targets from Tasks 2 and 4
 - Produces: Makefile where every target delegates to `bazel`; no Dockerfiles remain
 
-- [ ] **Step 1: Verify Bazel is the complete build path before deleting anything**
+- [x] **Step 1: Verify Bazel is the complete build path before deleting anything**
 
 ```bash
 bazel build //cmd/...
@@ -475,7 +475,7 @@ bazel build //cmd/agent:agent_image //cmd/controller:controller_image //cmd/webh
 
 All three must succeed before proceeding.
 
-- [ ] **Step 2: Overwrite `Makefile` with thin wrappers**
+- [x] **Step 2: Overwrite `Makefile` with thin wrappers**
 
 ```makefile
 # Autopilot Security Sensor — Bazel build wrapper
@@ -524,13 +524,13 @@ help:
 	@echo "  clean         - Clean Bazel output"
 ```
 
-- [ ] **Step 3: Delete Dockerfiles**
+- [x] **Step 3: Delete Dockerfiles**
 
 ```bash
 rm build/Dockerfile.agent build/Dockerfile.controller build/Dockerfile.webhook
 ```
 
-- [ ] **Step 4: Verify `make build` and `make test` still work**
+- [x] **Step 4: Verify `make build` and `make test` still work**
 
 ```bash
 make build
@@ -539,7 +539,7 @@ make test
 
 Both should succeed via their Bazel delegates.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add Makefile

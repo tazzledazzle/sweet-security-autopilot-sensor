@@ -1,0 +1,19 @@
+common --enable_bzlmod
+
+build --incompatible_strict_action_env
+build --sandbox_default_allow_network=false
+build --jobs=auto
+
+# Race detector off for binaries, on for tests
+build --@rules_go//go/config:race=false
+test  --@rules_go//go/config:race=true
+
+# Buildbuddy remote cache (populated in Task 3)
+build:remote-cache --remote_cache=grpcs://remote.buildbuddy.io
+build:remote-cache --remote_header=x-buildbuddy-api-key=${BUILDBUDDY_API_KEY}
+build:remote-cache --remote_upload_local_results=true
+
+# CI profile — used by GitHub Actions via --config=ci
+build:ci --config=remote-cache
+build:ci --noshow_progress
+build:ci --show_result=20
