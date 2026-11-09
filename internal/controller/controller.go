@@ -65,7 +65,14 @@ type Controller struct {
 }
 
 // New creates a new Controller with the given config and logger.
+// internal/controller/controller.go, inside New(), before the Controller is built
 func New(cfg config.ControllerConfig, log *logrus.Logger) *Controller {
+	// A zero or negative retention count would trim every alert immediately
+	// (alerts[len-0:] is empty), so fall back to a safe default instead.
+	if cfg.AlertRetentionCount <= 0 {
+		cfg.AlertRetentionCount = 1000
+	}
+	// ... rest of New unchanged
 	c := &Controller{
 		cfg:         cfg,
 		log:         log,

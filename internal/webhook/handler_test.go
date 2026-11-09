@@ -18,14 +18,16 @@ func TestProcessAdmissionReview_NonPod(t *testing.T) {
 	cfg := config.DefaultWebhookConfig()
 	review := admissionv1.AdmissionReview{
 		Request: &admissionv1.AdmissionRequest{
-			UID:  "req-1",
-			Kind: metav1.GroupVersionKind{Kind: "Deployment"},
-			Object: runtime.RawExtension{
-				Raw: []byte(`{}`),
-			},
+			UID:       "req-1",
+			Kind:      metav1.GroupVersionKind{Kind: "Deployment"},
+			Namespace: "default",
+			Object:    runtime.RawExtension{Raw: []byte(`{}`)},
 		},
 	}
-	body, _ := json.Marshal(review)
+	body, err := json.Marshal(review)
+	if err != nil {
+		t.Fatalf("Marshal review: %v", err)
+	}
 	respBody, err := ProcessAdmissionReview(body, cfg, log)
 	if err != nil {
 		t.Fatalf("ProcessAdmissionReview: %v", err)
@@ -108,7 +110,7 @@ func TestProcessAdmissionReview_Pod_InvalidPodJSON(t *testing.T) {
 			UID:       "req-1",
 			Kind:      metav1.GroupVersionKind{Kind: "Pod"},
 			Namespace: "default",
-			Object:    runtime.RawExtension{Raw: []byte("not a pod")},
+			Object:    runtime.RawExtension{Raw: []byte(`"not a pod"`)},
 		},
 	}
 	body, _ := json.Marshal(review)
