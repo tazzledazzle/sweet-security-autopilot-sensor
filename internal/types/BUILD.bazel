@@ -6,7 +6,7 @@ go_library(
         "alerts.go",
         "events.go",
     ],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/internal/types",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types",
     visibility = ["//:__subpackages__"],
 )
 

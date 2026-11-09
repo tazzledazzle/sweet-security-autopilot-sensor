@@ -9,7 +9,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
 )
 
 // ProcessAdmissionReview decodes the admission review request, applies webhook logic,

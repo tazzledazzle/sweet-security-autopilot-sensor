@@ -6,7 +6,7 @@ go_library(
         "admission.go",
         "handler.go",
     ],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/internal/webhook",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/webhook",
     visibility = ["//:__subpackages__"],
     deps = [
         "//internal/config",

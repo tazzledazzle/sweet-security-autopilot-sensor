@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 func TestNewEngine(t *testing.T) {

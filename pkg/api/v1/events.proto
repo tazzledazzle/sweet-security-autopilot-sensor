@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package apss.v1;
 
-option go_package = "github.com/invisible-tech/autopilot-security-sensor/pkg/api/v1";
+option go_package = "github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/api/v1";
 
 import "google/protobuf/timestamp.proto";
 

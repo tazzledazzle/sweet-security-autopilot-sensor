@@ -44,8 +44,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/sink"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/sink"
 )
 
 // mockSink implements AlertSink for testing.
@@ -119,7 +119,7 @@ func TestSendError(t *testing.T) {
 go test ./pkg/reporting/sink/...
 ```
 
-Expected: `cannot find package "github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/sink"`
+Expected: `cannot find package "github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/sink"`
 
 - [ ] **Step 3: Create `pkg/reporting/sink/sink.go`**
 
@@ -130,7 +130,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // AlertSink receives security alerts for processing or forwarding.
@@ -171,7 +171,7 @@ package sink
 import (
 	"context"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // AlertSink receives security alerts for processing or forwarding.
@@ -245,9 +245,9 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/bus"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/sink"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/bus"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/sink"
 )
 
 type countSink struct {
@@ -419,8 +419,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/sink"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/sink"
 )
 
 // Bus fans out alerts to all registered sinks concurrently.
@@ -542,9 +542,9 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/sweetsecurity"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/sweetsecurity"
 )
 
 func TestSink_Name(t *testing.T) {
@@ -652,8 +652,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // Sink adapts Client to the sink.AlertSink interface.
@@ -758,8 +758,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/grafana"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/grafana"
 )
 
 func newTestLog() *logrus.Logger {
@@ -869,7 +869,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // AnnotationSink sends Grafana annotations when alerts fire.
@@ -979,8 +979,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus/testutil"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/grafana"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/grafana"
 )
 
 func TestMetricsSink_Name(t *testing.T) {
@@ -1038,7 +1038,7 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // Exported so tests can read label values via testutil.ToFloat64.
@@ -1129,8 +1129,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/audit"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/audit"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 func newLog() *logrus.Logger {
@@ -1257,7 +1257,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // Handler receives Kubernetes audit EventList batches and converts
@@ -1663,7 +1663,7 @@ func (s *captureSink) Send(_ context.Context, a *types.Alert) error {
 }
 ```
 
-Also add these imports to the test file: `"sync"`, `"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/bus"`.
+Also add these imports to the test file: `"sync"`, `"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/bus"`.
 
 - [ ] **Step 2: Run the new tests to verify they fail**
 
@@ -1689,10 +1689,10 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/detection"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/bus"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/detection"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/bus"
 )
 
 var (
@@ -1926,7 +1926,7 @@ Delete these two test functions — they test methods that no longer exist:
 - `TestController_SendHighSeverityEvent_NoClient`
 - `TestController_SweetSecurity`
 
-Also add imports `"sync"` and `"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/bus"` to the test file.
+Also add imports `"sync"` and `"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/bus"` to the test file.
 
 - [ ] **Step 5: Run all controller tests**
 
@@ -2041,13 +2041,13 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/audit"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/controller"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/server"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/bus"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/reporting/grafana"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/sweetsecurity"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/audit"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/controller"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/server"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/bus"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/reporting/grafana"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/sweetsecurity"
 )
 
 func main() {

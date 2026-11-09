@@ -11,10 +11,10 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/detection"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/sweetsecurity"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/detection"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/sweetsecurity"
 )
 
 // Prometheus metrics (registered once).

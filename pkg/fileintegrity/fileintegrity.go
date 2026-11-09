@@ -13,7 +13,7 @@ import (
 	"github.com/fsnotify/fsnotify"
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/collector"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/collector"
 )
 
 // Config for file integrity monitoring

@@ -8,8 +8,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 func TestNew(t *testing.T) {

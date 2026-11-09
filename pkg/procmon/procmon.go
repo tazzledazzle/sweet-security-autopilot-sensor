@@ -15,7 +15,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/collector"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/collector"
 )
 
 // Config for process monitoring

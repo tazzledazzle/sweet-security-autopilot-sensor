@@ -10,7 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
 )
 
 func TestProcessAdmissionReview_NonPod(t *testing.T) {

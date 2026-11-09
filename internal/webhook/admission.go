@@ -8,7 +8,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
 )
 
 // PatchOperation represents a JSON patch operation (RFC 6902).

@@ -3,7 +3,7 @@ load("@rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "monitor",
     srcs = ["monitor.go"],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/monitor",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/monitor",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/collector",

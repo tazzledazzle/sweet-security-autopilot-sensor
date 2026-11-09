@@ -9,9 +9,9 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/config"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/controller"
-	"github.com/invisible-tech/autopilot-security-sensor/internal/server"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/controller"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/server"
 )
 
 func main() {

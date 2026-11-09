@@ -1,6 +1,6 @@
 # Cloud-Agnostic Architecture and Grafana Reporting Design
 
-**Project:** autopilot-security-sensor (`github.com/invisible-tech/autopilot-security-sensor`)
+**Project:** autopilot-security-sensor (`github.com/tazzledazzle/sweet-security-autopilot-sensor`)
 **Date:** 2026-10-28
 **Status:** Approved
 **Spec:** 2 of 2 (follows `2026-10-28-bazel-migration-design.md`)
@@ -91,7 +91,7 @@ package sink
 
 import (
     "context"
-    "github.com/invisible-tech/autopilot-security-sensor/internal/types"
+    "github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // AlertSink receives security alerts for processing or forwarding.

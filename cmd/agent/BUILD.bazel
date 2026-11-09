@@ -5,7 +5,7 @@ load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
 go_library(
     name = "agent_lib",
     srcs = ["main.go"],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/cmd/agent",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/cmd/agent",
     visibility = ["//visibility:private"],
     deps = [
         "//internal/config",
@@ -21,7 +21,6 @@ go_binary(
     visibility = ["//visibility:public"],
 )
 
-
 pkg_tar(
     name = "agent_layer",
     srcs = [":agent"],
@@ -30,8 +29,8 @@ pkg_tar(
 oci_image(
     name = "agent_image",
     base = "@distroless_nonroot_linux_amd64",
-    tars = [":agent_layer"],
     entrypoint = ["/agent"],
+    tars = [":agent_layer"],
 )
 
 oci_push(

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/invisible-tech/autopilot-security-sensor/internal/types"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/types"
 )
 
 // Rule defines a detection rule: condition and metadata.

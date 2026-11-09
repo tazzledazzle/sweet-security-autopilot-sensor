@@ -3,7 +3,7 @@ load("@rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "config",
     srcs = ["config.go"],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/internal/config",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/config",
     visibility = ["//:__subpackages__"],
 )
 

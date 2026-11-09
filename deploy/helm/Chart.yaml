@@ -10,9 +10,9 @@ keywords:
   - autopilot
   - runtime-security
   - kubernetes
-home: https://github.com/invisible-tech/autopilot-security-sensor
+home: https://github.com/tazzledazzle/sweet-security-autopilot-sensor
 sources:
-  - https://github.com/invisible-tech/autopilot-security-sensor
+  - https://github.com/tazzledazzle/sweet-security-autopilot-sensor
 maintainers:
   - name: SRE Team
     email: sre@invisible.email

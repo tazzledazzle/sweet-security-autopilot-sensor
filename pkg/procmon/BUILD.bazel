@@ -3,7 +3,7 @@ load("@rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "procmon",
     srcs = ["procmon.go"],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/procmon",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/procmon",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/collector",

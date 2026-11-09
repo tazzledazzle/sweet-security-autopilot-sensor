@@ -1,0 +1,4 @@
+
+# generated coverage output
+coverage*.out
+bin/

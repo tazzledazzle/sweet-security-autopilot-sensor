@@ -8,10 +8,10 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/collector"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/fileintegrity"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/netpolicy"
-	"github.com/invisible-tech/autopilot-security-sensor/pkg/procmon"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/collector"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/fileintegrity"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/netpolicy"
+	"github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/procmon"
 )
 
 // AgentConfig holds configuration for the monitoring agent

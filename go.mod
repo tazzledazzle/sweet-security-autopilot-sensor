@@ -1,4 +1,4 @@
-module github.com/invisible-tech/autopilot-security-sensor
+module github.com/tazzledazzle/sweet-security-autopilot-sensor
 
 go 1.22
 

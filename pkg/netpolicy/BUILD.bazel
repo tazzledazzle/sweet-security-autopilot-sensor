@@ -3,7 +3,7 @@ load("@rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "netpolicy",
     srcs = ["netpolicy.go"],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/pkg/netpolicy",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/pkg/netpolicy",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/collector",

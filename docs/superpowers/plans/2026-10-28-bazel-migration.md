@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Bazel version: `7.4.1` (pinned in `.bazelversion`)
-- Go module path: `github.com/invisible-tech/autopilot-security-sensor`
+- Go module path: `github.com/tazzledazzle/sweet-security-autopilot-sensor`
 - Go version: `1.22.0` (pinned in `go_sdk.download`)
 - Registry: `gcr.io/invisible-sre-sandbox`
 - All existing `go test ./...` tests must pass under `bazel test //...`
@@ -104,7 +104,7 @@ build:ci --show_result=20
 ```python
 load("@gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/invisible-tech/autopilot-security-sensor
+# gazelle:prefix github.com/tazzledazzle/sweet-security-autopilot-sensor
 
 package(default_visibility = ["//visibility:private"])
 
@@ -172,7 +172,7 @@ load("@rules_go//go:def.bzl", "go_binary", "go_library")
 go_library(
     name = "agent_lib",
     srcs = ["main.go"],
-    importpath = "github.com/invisible-tech/autopilot-security-sensor/cmd/agent",
+    importpath = "github.com/tazzledazzle/sweet-security-autopilot-sensor/cmd/agent",
     visibility = ["//visibility:private"],
     deps = [
         "//internal/config",

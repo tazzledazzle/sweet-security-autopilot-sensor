@@ -13,7 +13,7 @@ This guide walks through deploying the Autopilot Security Sensor (APSS) to your 
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/invisible-tech/autopilot-security-sensor.git
+git clone https://github.com/tazzledazzle/sweet-security-autopilot-sensor.git
 cd autopilot-security-sensor
 
 # 2. Connect to the cluster

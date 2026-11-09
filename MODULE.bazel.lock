@@ -454,7 +454,7 @@
         "bzlTransitiveDigest": "3lAltYJp6u8Z4k9qI7Nn1s2S5dTYTxi80hAMysQWRJE=",
         "usagesDigest": "BTmYW0aKIbB7qJjr4zr2bBCFkIVeTmLGp1QYj8Wyxus=",
         "recordedFileInputs": {
-          "@@//go.mod": "45816da90ddd347ce434094e5c99a2bcb9ee3ac1e198ab2bf35d0867d724190e",
+          "@@//go.mod": "1a7305bf4e6437bb75617fd23d31a05cda5ab00817bb772e46531171ca8532d5",
           "@@rules_go~//go.mod": "de22304b720f7f61350ec1c9739de6c0a1b1103fd22bfeb6e92c6c843ddc6d6e",
           "@@gazelle~//go.sum": "7c4460e8ecb5dd8691a51d4fa2e9e4751108b933636497ce46db499fc2e7a88d",
           "@@//go.sum": "a5379712dd48c6d99fbe9d879ef22da05bb74b6cbd09567d32b72106edc8911c",

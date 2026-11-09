@@ -1,6 +1,6 @@
 # Bazel Migration Design
 
-**Project:** autopilot-security-sensor (`github.com/invisible-tech/autopilot-security-sensor`)
+**Project:** autopilot-security-sensor (`github.com/tazzledazzle/sweet-security-autopilot-sensor`)
 **Date:** 2026-10-28
 **Status:** Approved
 
@@ -123,7 +123,7 @@ use_repo(oci, "distroless_nonroot")
 ```python
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/invisible-tech/autopilot-security-sensor
+# gazelle:prefix github.com/tazzledazzle/sweet-security-autopilot-sensor
 package(default_visibility = ["//visibility:private"])
 
 gazelle(name = "gazelle")

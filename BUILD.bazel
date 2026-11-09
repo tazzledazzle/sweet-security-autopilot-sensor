@@ -1,6 +1,6 @@
 load("@gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/invisible-tech/autopilot-security-sensor
+# gazelle:prefix github.com/tazzledazzle/sweet-security-autopilot-sensor
 
 package(default_visibility = ["//visibility:private"])
 

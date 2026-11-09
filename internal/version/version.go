@@ -1,5 +1,5 @@
 // Package version provides a single source of truth for the application version.
-// Version can be set at build time via ldflags: -ldflags '-X github.com/invisible-tech/autopilot-security-sensor/internal/version.Version=1.2.3'
+// Version can be set at build time via ldflags: -ldflags '-X github.com/tazzledazzle/sweet-security-autopilot-sensor/internal/version.Version=1.2.3'
 package version
 
 // Version is set at build time; default for local builds.
